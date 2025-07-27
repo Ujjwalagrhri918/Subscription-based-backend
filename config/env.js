@@ -17,4 +17,4 @@ const envFile = path.resolve(
 config({ path: envFile });
 
 // Export environment variables
-export const PORT = process.env.PORT || 3000;
+export const {PORT, NODE_ENV, DB_URI} = process.env;
