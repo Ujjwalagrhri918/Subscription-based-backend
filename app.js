@@ -12,14 +12,14 @@ import errorMiddleware from "./models/middlewares/error_middleware.js";
 
 const app = express();
 
-app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/users', userRouter);
-app.use('/api/v1/subscriptions', subscriptionRouter);
-
 app.use(errorMiddleware);
 app.use(express.json()); // Parses incoming requests with JSON payloads (used for API requests)
 app.use(express.urlencoded({ extended: true })); // Parses URL-encoded bodies (e.g., form submissions)
 app.use(cookieParser()); // Parses cookies from the HTTP request header (useful for auth/session)
+
+app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/users', userRouter);
+app.use('/api/v1/subscriptions', subscriptionRouter);
 
 
 

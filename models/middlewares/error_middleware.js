@@ -7,7 +7,7 @@
  */
 
 const errorMiddleware = (err, req, res, next) => {
-  let statusCode = res.statusCode !== 200 ? res.statusCode : 500;
+  let statusCode = err.statusCode || 500;
   let message = err.message;
 
   //Handle invalid ObjectId (CastError)
